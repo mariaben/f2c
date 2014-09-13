@@ -23,12 +23,14 @@ namespace org.mariaben.shevah.converter
 					
 					double temperatureInCelcius = f2c(temperatureInFartnheit);
 				
-					Console.WriteLine(temperatureInFartnheit + "F = " + 
-					                  temperatureInCelcius + "C");
+					Console.WriteLine("{0:###.##}F = {1:###.##}C", 
+					                  temperatureInFartnheit,
+					                  temperatureInCelcius);
 				} 
 				catch(Exception ex)
 				{
-					Console.WriteLine("Can not convert " + inputValue + ": " + 
+					Console.WriteLine("Can not convert {0}: {1}",
+					                  inputValue,
 					                  ex.Message);
 				}				
 			}
