@@ -6,17 +6,12 @@ namespace org.mariaben.shevah.converter
 	{
 		public static void Main(string[] args)
 		{
-			while(true) 
-			{
-				Console.Write("Input temperature in Fartnheit and press " +
-				              "<ENTER>, 'q' for exit: ");
-				string inputValue = Console.ReadLine();						
-				
-				if(inputValue == "q") 
-				{
-					break;
-				}
-				
+			Console.Write("Input temperature in Fartnheit and press " +
+				              "<ENTER>, 'q' for exit: ");				
+			string inputValue = Console.ReadLine();
+			
+			while(inputValue != "q") 
+			{	
 				try 
 				{
 					double temperatureInFartnheit = Double.Parse(inputValue);
@@ -30,7 +25,13 @@ namespace org.mariaben.shevah.converter
 				{
 					Console.WriteLine("Can not convert " + inputValue + ": " + 
 					                  ex.Message);
-				}				
+				}
+				finally 
+				{
+					Console.Write("Input temperature in Fartnheit and press " +
+				              "<ENTER>, 'q' for exit: ");				
+					inputValue = Console.ReadLine();					
+				}
 			}
 			
 			Console.WriteLine("Thank you for using F2C converter!");
